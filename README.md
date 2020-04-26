@@ -3,7 +3,7 @@
 ### 介绍
 ##### 此为开发测试用的单机单节点Redis，可利用.env配置主或从
 
-#### 不可将此版本直接部署至生产环境
+#### 不建议将此版本直接部署至生产环境。
 
 本镜像包含：
 * redis
@@ -160,6 +160,7 @@ ANNOUNCE_PORT=
 ```
 
 * 检查或修改redis.conf
+
 主要是检查bind ip与compose文件的IP分配是否一致，密码需要更改，其余配置根据实际情况调整
 
 * 启动docker-redis
@@ -176,6 +177,7 @@ redis   /bin/bash /usr/src/sh/redis.sh   Up      0.0.0.0:10001->6379/tcp
 ```
 
 * 进入容器使用redis-cli
+
 为了方便一次性用脚本指定映射端口，compose文件network地址被强制规划了172.24.0.2，所以访问时需要使用这个IP而不是127.0.0.1，另密码在redis.conf文件中。
 ```shell script
 $ docker exec -ti redis /bin/bash
