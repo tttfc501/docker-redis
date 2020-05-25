@@ -37,6 +37,12 @@ services:
     entrypoint:
       - /bin/bash
       - /usr/src/sh/redis.sh
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200m"
+        max-file: "5"
+        compress: "true"
     networks:
       redis:
         ipv4_address: 172.24.0.2
